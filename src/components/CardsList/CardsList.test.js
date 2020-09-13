@@ -7,12 +7,15 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import axios from 'axios';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('CardsList', () => {
   let store;
+  axios.get = jest.fn(() => ({}));
+
   beforeEach(() => {
     store = mockStore({
       favorites: initialStateFavorites,

@@ -10,12 +10,14 @@ import Modal from './Modal';
 import { MemoryRouter, Route, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { pokemon1 } from '../../tests/mocks';
+import axios from 'axios';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('Modal', () => {
   let store;
+  axios.get = jest.fn(() => ({}));
 
   beforeEach(() => {
     store = mockStore({
