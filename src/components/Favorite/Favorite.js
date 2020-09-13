@@ -7,9 +7,10 @@ import {
   removeFromFavorites,
 } from '../../store/modules/favorites/favorites.actions';
 import './Favorite.scss';
+import { PropTypes } from 'prop-types';
 
 const mapStateToProps = (state) => ({
-  favorites: state.favorites.favorites
+  favorites: state.favorites.favorites,
 });
 
 const Favorite = ({ favorites, pokemon, className, dispatch }) => {
@@ -30,12 +31,18 @@ const Favorite = ({ favorites, pokemon, className, dispatch }) => {
 
   return (
     <img
+      role='button'
       onClick={(e) => clickOnFavorite(e)}
       src={starSrc}
       alt='favorite'
       className={`favorite ${className}`}
     />
   );
+};
+
+Favorite.propTypes = {
+  favorites: PropTypes.array,
+  pokemon: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(Favorite);

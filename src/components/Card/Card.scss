@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
-  min-width: calc(20% - 1rem);
+  min-width: calc(50% - 4.25rem);
   min-height: 100px;
   box-shadow: 0 3px 6px rgba($color: $color-black, $alpha: 0.3);
   border-radius: 1rem;
@@ -17,6 +17,10 @@
   background: rgba($color-yellow, 0.75);
   border: 5px solid $color-blue-light;
   position: relative;
+   
+  @media screen and (min-width: 768px) {
+    min-width: calc(20% - 1rem);
+  }
 
   &:hover {
     box-shadow: 0 12px 24px rgba($color: $color-black, $alpha: 0.3);

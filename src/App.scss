@@ -1,5 +1,10 @@
 .app {
   text-align: center;
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 2rem;
   margin-top: 4rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem 4rem;
+  }
+
 }

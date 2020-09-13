@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Favorite from '../Favorite/Favorite';
 import './Card.scss';
+import { PropTypes } from 'prop-types';
 
 const Card = ({ pokemon, className, location }) => {
   return (
@@ -21,5 +22,9 @@ const Card = ({ pokemon, className, location }) => {
     </Link>
   );
 };
+
+Card.propTypes = {
+  pokemon: PropTypes.object,
+}
 
 export default withRouter(Card);

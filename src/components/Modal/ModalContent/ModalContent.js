@@ -1,6 +1,7 @@
 import React from 'react';
 import Favorite from '../../Favorite/Favorite';
 import './ModalContent.scss';
+import { PropTypes } from 'prop-types';
 
 const joinArray = (names) => names.join(', ');
 
@@ -49,6 +50,10 @@ const ModalContent = ({ pokemon }) => {
       <Favorite className='modal-content__favorite' pokemon={pokemon} />
     </div>
   );
+};
+
+ModalContent.propTypes = {
+  pokemon: PropTypes.object,
 };
 
 export default ModalContent;

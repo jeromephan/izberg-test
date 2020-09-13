@@ -5,6 +5,7 @@ import { getDetailsByName } from '../../store/modules/modal/modal.actions';
 import './Modal.scss';
 import ModalContent from './ModalContent/ModalContent';
 import Loader from '../Loader/Loader';
+import { PropTypes } from 'prop-types';
 
 const mapStateToProps = (state) => ({
   data: state.modal.data,
@@ -12,7 +13,7 @@ const mapStateToProps = (state) => ({
   error: state.modal.error,
 });
 
-const Modal = ({ history, dispatch, match, data, isLoading }) => {
+const Modal = ({ history, dispatch, match, data, isLoading, error }) => {
   const goBack = () => history.goBack;
 
   useEffect(() => {
@@ -21,6 +22,9 @@ const Modal = ({ history, dispatch, match, data, isLoading }) => {
     return () => {};
   }, []);
 
+  const errorComponent = (
+    <p>{((error || {}).response || {}).data}</p>
+  );
   const content = isLoading ? <Loader /> : <ModalContent pokemon={data} />;
 
   return (
@@ -30,12 +34,15 @@ const Modal = ({ history, dispatch, match, data, isLoading }) => {
         className='modal__wrapper'
         onClick={(e) => e.stopPropagation()}
       >
-        <div className='modal__content'>
-          {content}
-        </div>
+        <div className='modal__content'>{error ? errorComponent : content}</div>
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  data: PropTypes.object,
+  isLoading: PropTypes.bool,
 };
 
 export default connect(mapStateToProps)(withRouter(Modal));

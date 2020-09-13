@@ -34,7 +34,7 @@ const Pokemon = ({
 
   return (
     <div className='pokemon'>
-      <CardsList is-loading={isLoading} pokemon={pokemon} />
+      <CardsList isLoading={isLoading} pokemon={pokemon} error={error} />
       <div className='cards-list__pagination'>
         <Link
           to={{
