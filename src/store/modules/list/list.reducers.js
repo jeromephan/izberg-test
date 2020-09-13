@@ -4,7 +4,7 @@ import {
   GET_LIST_SUCCESS,
 } from './list.actions';
 
-const initialState = {
+export const initialState = {
   list: [],
   count: 0,
   next: null,
@@ -35,10 +35,11 @@ export default function listReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
+        list: [],
         error: action.payload.error,
       };
 
     default:
       return state;
   }
-};
+}
