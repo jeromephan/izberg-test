@@ -1,5 +1,6 @@
 .modal-content {
   width: 100%;
+  position: relative;
 
   &__name {
     text-transform: capitalize;
@@ -20,6 +21,7 @@
 
   &__text {
     line-height: 1.5rem;
+    text-align: left;
     &--bold {
       font-weight: bold;
     }
@@ -27,5 +29,15 @@
     &--capitalize {
       text-transform: capitalize;
     }
+  }
+
+  &__list {
+    text-align: left;
+  }
+
+  &__favorite {
+    position: absolute;
+    right: -0.5rem;
+    top: -0.5rem;
   }
 }

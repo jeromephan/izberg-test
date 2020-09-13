@@ -18,14 +18,18 @@ export const getListError = (error) => ({
   payload: { error },
 });
 
-export const getList = () => {
+export const getList = (page, limit = 20) => {
+  const offset = page * limit;
+
   return async (dispatch) => {
     try {
       dispatch(getListBegin());
 
       const {
         data: { count, next, previous, results: list },
-      } = await axios.get(process.env.REACT_APP_API_URL);
+      } = await axios.get(process.env.REACT_APP_API_URL, {
+        params: { offset: offset, limit },
+      });
 
       dispatch(getListSuccess({ count, next, previous, list }));
     } catch (error) {

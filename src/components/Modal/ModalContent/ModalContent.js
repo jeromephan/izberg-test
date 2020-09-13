@@ -1,4 +1,5 @@
 import React from 'react';
+import Favorite from '../../Favorite/Favorite';
 import './ModalContent.scss';
 
 const joinArray = (names) => names.join(', ');
@@ -7,7 +8,7 @@ const ModalContent = ({ pokemon }) => {
   return (
     <div className='modal-content'>
       <p className='modal-content__name'>
-        {pokemon.order}. {pokemon.name}
+        {pokemon.id}. {pokemon.name}
       </p>
       <div className='modal-content__wrapper'>
         <img
@@ -39,8 +40,13 @@ const ModalContent = ({ pokemon }) => {
         <span className='modal-content__text--bold'>Base Stats:</span>{' '}
       </p>
       <ul className='modal-content__list'>
-          {(pokemon.stats || []).map(stat => (<li>{ stat.stat.name }: {stat.base_stat}</li>))}
+        {(pokemon.stats || []).map((stat) => (
+          <li key={stat.stat.name}>
+            {stat.stat.name}: {stat.base_stat}
+          </li>
+        ))}
       </ul>
+      <Favorite className='modal-content__favorite' pokemon={pokemon} />
     </div>
   );
 };

@@ -1,0 +1,24 @@
+@import '../../assets/scss/colors';
+
+.topbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color-white;
+  padding: 2rem;
+  width: 100%;
+  justify-content: center;
+  z-index: 1;
+
+  &__link {
+    font-weight: bold;
+    color: $color-blue-dark;
+    text-decoration: none;
+    margin: 0 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

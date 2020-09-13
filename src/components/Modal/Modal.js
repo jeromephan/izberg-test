@@ -6,13 +6,13 @@ import './Modal.scss';
 import ModalContent from './ModalContent/ModalContent';
 import Loader from '../Loader/Loader';
 
-const mapState = (state) => ({
+const mapStateToProps = (state) => ({
   data: state.modal.data,
   isLoading: state.modal.isLoading,
   error: state.modal.error,
 });
 
-const Modal = ({ history, child, dispatch, match, data, isLoading }) => {
+const Modal = ({ history, dispatch, match, data, isLoading }) => {
   const goBack = () => history.goBack;
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const Modal = ({ history, child, dispatch, match, data, isLoading }) => {
   );
 };
 
-export default connect(mapState)(withRouter(Modal));
+export default connect(mapStateToProps)(withRouter(Modal));

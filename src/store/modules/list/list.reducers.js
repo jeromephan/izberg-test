@@ -26,6 +26,9 @@ export default function listReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         list: action.payload.list,
+        previous: action.payload.previous,
+        next: action.payload.next,
+        count: action.payload.count,
       };
 
     case GET_LIST_FAILURE:

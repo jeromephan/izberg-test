@@ -1,33 +1,20 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getList } from '../../store/modules/list/list.actions';
+import React from 'react';
 import Card from '../Card/Card';
+import Loader from '../Loader/Loader';
 import './CardsList.scss';
 
-const mapState = (state) => ({
-  pokemon: state.list.list,
-  isLoading: state.list.isLoading,
-  error: state.list.error,
-});
-
-const CardsList = ({ dispatch, pokemon }) => {
-  useEffect(() => {
-    dispatch(getList());
-
-    return () => {};
-  }, []);
+const CardsList = ({ pokemon, isLoading }) => {
+  const loaderComponent = <Loader />;
+  const listComponent = pokemon.map((pokemon) => (
+    <Card className='cards-list__card' key={pokemon.name} pokemon={pokemon} />
+  ));
+  const contentComponent = isLoading ? loaderComponent : listComponent;
 
   return (
     <div className='cards-list'>
-      {pokemon.map(pokemon => (
-        <Card
-          className='cards-list__card'
-          key={pokemon.name}
-          pokemon={pokemon}
-        />
-      ))}
+      <div className='cards-list__wrapper'>{contentComponent}</div>
     </div>
   );
 };
 
-export default connect(mapState)(CardsList);
+export default CardsList;

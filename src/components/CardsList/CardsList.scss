@@ -1,9 +1,40 @@
+@import '../../assets/scss/colors';
+
 .cards-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 80vh;
+    align-items: center;
+  }
 
   &__card {
     margin: 0.5rem;
+  }
+
+  &__pagination {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, transparent, $color-white)
+  }
+
+  &__link {
+    color: $color-black;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
