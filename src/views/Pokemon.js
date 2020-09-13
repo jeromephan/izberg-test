@@ -25,12 +25,15 @@ const Pokemon = ({
 }) => {
   const getPage = () =>
     Number((queryString.parse(location.search) || {}).page) || 0;
+  const page = getPage();
 
   useEffect(() => {
-    dispatch(getList(getPage()));
+    const getListDispatcher = () => {
+      dispatch(getList(page));
+    };
 
-    return () => {};
-  }, [location.search]);
+    getListDispatcher();
+  }, [dispatch, page]);
 
   return (
     <div className='pokemon'>
@@ -39,7 +42,7 @@ const Pokemon = ({
         <Link
           to={{
             pathname: '/',
-            search: previous ? `?page=${getPage() - 1}` : '?page=0',
+            search: previous ? `?page=${page - 1}` : '?page=0',
           }}
           className='cards-list__link'
         >
@@ -48,7 +51,7 @@ const Pokemon = ({
         <Link
           to={{
             pathname: '/',
-            search: next ? `?page=${getPage() + 1}` : `?page=${getPage()}`,
+            search: next ? `?page=${page + 1}` : `?page=${page}`,
           }}
           className='cards-list__link'
         >

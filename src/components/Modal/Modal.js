@@ -17,14 +17,14 @@ const Modal = ({ history, dispatch, match, data, isLoading, error }) => {
   const goBack = () => history.goBack;
 
   useEffect(() => {
-    dispatch(getDetailsByName(match.params.pokemon));
+    const getDetails = () => {
+      dispatch(getDetailsByName(match.params.pokemon));
+    };
 
-    return () => {};
-  }, []);
+    getDetails();
+  }, [match.params.pokemon, dispatch]);
 
-  const errorComponent = (
-    <p>{((error || {}).response || {}).data}</p>
-  );
+  const errorComponent = <p>{((error || {}).response || {}).data}</p>;
   const content = isLoading ? <Loader /> : <ModalContent pokemon={data} />;
 
   return (
