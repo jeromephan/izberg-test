@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import CardsList from './CardsList';
 import { pokemonList } from '../../tests/mocks';
 import { initialState as initialStateFavorites } from '../../store/modules/favorites/favorites.reducers';
