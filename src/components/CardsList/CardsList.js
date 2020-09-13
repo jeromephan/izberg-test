@@ -14,7 +14,7 @@ const CardsList = ({ pokemon, isLoading, error }) => {
     <p className='cards-list__text'>No pokemon was found at this page</p>
   );
   const errorComponent = (
-    <p>{((error || {}).response || {}).data}</p>
+    <p className='cards-list__error'>{((error || {}).response || {}).data}</p>
   );
   const contentComponent = isLoading ? loaderComponent : listComponent;
 

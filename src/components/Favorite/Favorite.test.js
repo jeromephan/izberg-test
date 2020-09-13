@@ -4,7 +4,7 @@ import { initialState as initialStateFavorites } from '../../store/modules/favor
 import * as actions from '../../store/modules/favorites/favorites.actions';
 import { render, act } from '@testing-library/react';
 import Favorite from './Favorite';
-import { MemoryRouter, Route, Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { pokemon1, pokemonList } from '../../tests/mocks';
 
