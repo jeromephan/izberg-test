@@ -1,0 +1,23 @@
+@import '../../assets/scss/colors';
+
+.card {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    min-width: calc(20% - 1rem);
+    min-height: 100px;
+    box-shadow: 0 3px 6px rgba($color: $color-black, $alpha: 0.3);
+    border-radius: 1rem;
+    transition: 0.3s;
+    color: #333;
+    text-decoration: none;
+    background: $color-yellow;
+    border: 5px solid $color-blue-light;
+
+    &:hover {
+        box-shadow: 0 12px 24px rgba($color: $color-black, $alpha: 0.3);
+        text-decoration: underline;
+    }
+}

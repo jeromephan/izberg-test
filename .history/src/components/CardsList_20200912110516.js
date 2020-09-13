@@ -1,0 +1,22 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getPokemon } from '../store/actions/pokemon.actions';
+import Card from './Card'
+
+const mapState = (state) => ({
+  pokemon: state.pokemon.pokemon,
+  isLoading: state.pokemon.isLoading,
+  error: state.pokemon.error,
+});
+
+const CardsList = props => {
+  useEffect(() => {  
+    props.dispatch(getPokemon());
+
+    return () => {}
+  }, []);
+
+  return (props.pokemon.map(pokemon => <Card pokemon={pokemon} />));
+};
+
+export default connect(mapState)(CardsList);

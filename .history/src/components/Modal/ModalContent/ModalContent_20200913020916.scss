@@ -1,0 +1,12 @@
+.modal-content {
+  &__name {
+    text-transform: capitalize;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__sprite {
+      min-height: 200px;
+  }
+}

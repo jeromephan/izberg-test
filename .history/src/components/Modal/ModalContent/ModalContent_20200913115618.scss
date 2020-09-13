@@ -1,0 +1,29 @@
+.modal-content {
+  &__name {
+    text-transform: capitalize;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  &__sprite {
+      min-height: 100px;
+  }
+
+  &__text {
+      line-height: 1.5rem;
+      &--bold {
+          font-weight: bold;
+      }
+
+      &--capitalize {
+          text-transform: capitalize;
+      }
+  }
+}

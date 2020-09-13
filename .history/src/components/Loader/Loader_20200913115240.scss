@@ -1,0 +1,27 @@
+@import '../../assets/scss/colors';
+
+.loader {
+  display: inline-block;
+;
+;
+  justify-content: center;
+  align-items: center;
+  &:after {
+    content: ' ';
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 6px solid $color-black;
+    border-color: $color-black transparent $color-black transparent;
+    animation: loader 1.2s linear infinite;
+  }
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

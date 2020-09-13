@@ -1,0 +1,9 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__card {
+    min-width: 100px;
+    min-height: 100px;
+  }
+}
