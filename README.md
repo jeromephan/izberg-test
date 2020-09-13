@@ -6,9 +6,10 @@
 * **Add/Remove Pokemon to a favorite list**
 
 ## Installation
-1. `npm install`
-2. `npm start`
-3. Visit `http://localhost:3000`
+1. Clone the project `git clone git@github.com:jeromephan/izberg-test.git`
+2. `npm install`
+3. `npm start`
+4. Visit `http://localhost:3000`
 
 ## Packages used
 1. React
