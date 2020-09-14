@@ -13,6 +13,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  animation-name: modalFade;
+  animation-duration: 0.3s;
 
   &__wrapper {
     min-height: 200px;
@@ -30,5 +32,27 @@
     cursor: initial;
     display: flex;
     min-height: 410px;
+    animation-name: modalTranslate;
+    animation-duration: 0.5s;
+  }
+}
+
+@keyframes modalTranslate {
+  from {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
