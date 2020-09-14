@@ -8,8 +8,27 @@
   background: $color-white;
   padding: 1.5rem 0;
   width: 100%;
-  justify-content: center;
   z-index: 1;
+  box-shadow: 0 3px 6px rgba($color: $color-black, $alpha: 0.5);
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-around;
+  }
+
+  &__logo {
+    display: none;
+    max-height: 30px;
+
+    @media screen and (min-width: 768px) {
+      display: initial;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
 
   &__link {
     font-weight: bold;
